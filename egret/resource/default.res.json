@@ -1,0 +1,150 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,music_off_png,music_on_png,p_one_angular_png,p_one_bg_png,p_one_footer_png,p_one_guang_png,p_one_title_png,p_one_wordContainer_png,p_one_word_png,sfx_wing_mp3,loading_gif,bgmusic_mp3,music_on2_png,p_two_midcircle_png,p_two_button_png,p_two_word_png,p_two_robot_1_png,p_two_angular_png,p_two_arrow_png,p_two_person_2_png,p_two_person_3_png,p_two_person_1_png,p_two_robot_2_png,p_two_robot_3_png,p_two_robot_4_png,7571_wav,sfx_swooshing_mp3",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description_json"
+		},
+		{
+			"url": "assets/music_off.png",
+			"type": "image",
+			"name": "music_off_png"
+		},
+		{
+			"url": "assets/music_on.png",
+			"type": "image",
+			"name": "music_on_png"
+		},
+		{
+			"url": "assets/p_one_angular.png",
+			"type": "image",
+			"name": "p_one_angular_png"
+		},
+		{
+			"url": "assets/p_one_bg.png",
+			"type": "image",
+			"name": "p_one_bg_png"
+		},
+		{
+			"url": "assets/p_one_footer.png",
+			"type": "image",
+			"name": "p_one_footer_png"
+		},
+		{
+			"url": "assets/p_one_guang.png",
+			"type": "image",
+			"name": "p_one_guang_png"
+		},
+		{
+			"url": "assets/p_one_itle.png",
+			"type": "image",
+			"name": "p_one_title_png"
+		},
+		{
+			"url": "assets/p_one_wordContainer.png",
+			"type": "image",
+			"name": "p_one_wordContainer_png"
+		},
+		{
+			"url": "assets/p_one_word.png",
+			"type": "image",
+			"name": "p_one_word_png"
+		},
+		{
+			"name": "sfx_wing_mp3",
+			"type": "sound",
+			"url": "assets/sfx_wing.mp3"
+		},
+		{
+			"name": "loading_gif",
+			"type": "image",
+			"url": "assets/loading.gif"
+		},
+		{
+			"name": "bgmusic_mp3",
+			"type": "sound",
+			"url": "assets/bgmusic.mp3"
+		},
+		{
+			"name": "music_on2_png",
+			"type": "image",
+			"url": "assets/music_on.png"
+		},
+		{
+			"name": "p_two_midcircle_png",
+			"type": "image",
+			"url": "assets/p_two_midcircle.png"
+		},
+		{
+			"name": "p_two_button_png",
+			"type": "image",
+			"url": "assets/p_two_button.png"
+		},
+		{
+			"name": "p_two_word_png",
+			"type": "image",
+			"url": "assets/p_two_word.png"
+		},
+		{
+			"name": "p_two_robot_1_png",
+			"type": "image",
+			"url": "assets/p_two_robot_1.png"
+		},
+		{
+			"name": "p_two_angular_png",
+			"type": "image",
+			"url": "assets/p_two_angular.png"
+		},
+		{
+			"name": "p_two_arrow_png",
+			"type": "image",
+			"url": "assets/p_two_arrow.png"
+		},
+		{
+			"name": "p_two_person_2_png",
+			"type": "image",
+			"url": "assets/p_two_person_2.png"
+		},
+		{
+			"name": "p_two_person_3_png",
+			"type": "image",
+			"url": "assets/p_two_person_3.png"
+		},
+		{
+			"name": "p_two_person_1_png",
+			"type": "image",
+			"url": "assets/p_two_person_1.png"
+		},
+		{
+			"name": "p_two_robot_2_png",
+			"type": "image",
+			"url": "assets/p_two_robot_2.png"
+		},
+		{
+			"name": "p_two_robot_3_png",
+			"type": "image",
+			"url": "assets/p_two_robot_3.png"
+		},
+		{
+			"name": "p_two_robot_4_png",
+			"type": "image",
+			"url": "assets/p_two_robot_4.png"
+		},
+		{
+			"name": "7571_wav",
+			"type": "sound",
+			"url": "assets/7571.wav"
+		},
+		{
+			"name": "sfx_swooshing_mp3",
+			"type": "sound",
+			"url": "assets/sfx_swooshing.mp3"
+		}
+	]
+}
