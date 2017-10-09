@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Egret</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <style>
+        html, body {
+            -ms-touch-action: none;
+            background: #ffffff;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player"
+         data-entry-class="Main"
+         data-orientation="landscape"
+         data-scale-mode="fixedWidth"
+         data-frame-rate="30"
+         data-content-width="640"
+         data-content-height="1136"
+         data-show-paint-rect="false"
+         data-multi-fingered="2"
+         data-show-fps="false" data-show-log="false"
+         data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
+    </div>
+        
+    <div id="vBox"
+        style="width: 100%;height: 100%;position: absolute;top:0;left:0;z-index: 99999;overflow: visible;display: none;">
+        <video id="v1" 
+            src="./resource/assets/interview_1.mp4" 
+            width="1136"
+            height="640" 
+            x5-video-player-type="h5" 
+            x5-video-player-fullscreen="true" 
+            webkit-playsinline="true"
+            playsinline="true" 
+            x5-video-player-fullscreen="true" 
+            x5-video-orientation="portraint"
+            poster="./resource/assets/interview_stop.png"
+            style="width: 100%;height: 100%;position: absolute;top:0;left:0;display: block;"
+            >
+        </video>
+    </div>
+    <!-- <div id="vBox" style="background-color: yellow;z-index: 9999;width: 100%;height: 100%;position: absolute;top: 0;left: 0">
+    </div> -->
+<script>
+    var loadScript = function (list, callback) {
+        var loaded = 0;
+        var loadNext = function () {
+            loadSingleScript(list[loaded], function () {
+                loaded++;
+                if (loaded >= list.length) {
+                    callback();
+                }
+                else {
+                    loadNext();
+                }
+            })
+        };
+        loadNext();
+    };
+
+    var loadSingleScript = function (src, callback) {
+        var s = document.createElement('script');
+        s.async = false;
+        s.src = src;
+        s.addEventListener('load', function () {
+            s.parentNode.removeChild(s);
+            s.removeEventListener('load', arguments.callee, false);
+            callback();
+        }, false);
+        document.body.appendChild(s);
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './manifest.json?v=' + Math.random(), true);
+    xhr.addEventListener("load", function () {
+        var manifest = JSON.parse(xhr.response);
+        var list = manifest.initial.concat(manifest.game);
+        loadScript(list, function () {
+            /**
+             * {
+             * "renderMode":, //Engine rendering mode, "canvas" or "webgl"
+             * "audioType": 0 //Use the audio type, 0: default, 2: web audio, 3: audio
+             * "antialias": //Whether the anti-aliasing is enabled in WebGL mode, true: on, false: off, defaults to false
+             * "retina": //Whether the canvas is based on the devicePixelRatio
+             * }
+             **/
+            egret.runEgret({ renderMode: "webgl", audioType: 0 });
+        });
+    });
+    xhr.send(null);
+
+    const log = console.log.bind(console)
+    const WIDTH = document.documentElement.scrollWidth
+    const HEIGHT = document.documentElement.scrollHeight
+    const MAX = WIDTH > HEIGHT ? WIDTH : HEIGHT
+    const MIN = WIDTH < HEIGHT ? WIDTH : HEIGHT
+    const contentDOM = document.getElementById('vBox')
+    //如果是竖屏
+    if (WIDTH < HEIGHT) {
+        log('竖屏')
+        contentDOM.style.width = MAX + 'px';
+        contentDOM.style.height = MIN + 'px';
+        contentDOM.style.top = (MAX - MIN) / 2 + 'px';
+        contentDOM.style.left = 0 - (MAX - MIN) / 2 + 'px';
+        contentDOM.style.transform = 'rotate(90deg)';
+    }
+
+    const evt = "onorientationchange" in window ? "orientationchange" : "resize";
+
+    window.addEventListener(evt, function () {
+        
+        //微信的orientationchange有延迟
+        setTimeout(function () {
+            let width = document.documentElement.scrollWidth
+            let height = document.documentElement.scrollHeight
+            // alert(width  )
+            // alert(height)
+            if ( width > height) { // 横屏
+                contentDOM.style.transform = 'rotate(0)';
+                contentDOM.style.width = MAX + 'px';
+                contentDOM.style.height = MIN + 'px';
+                contentDOM.style.top = '0px';
+                contentDOM.style.left = '0px';
+            }
+            else {
+                // alert('竖屏')
+                contentDOM.style.transform = 'rotate(90deg)';
+                contentDOM.style.width = MAX + 'px';
+                contentDOM.style.height = MIN + 'px';
+                contentDOM.style.top = (MAX - MIN) / 2 + 'px';
+                contentDOM.style.left = 0 - (MAX - MIN) / 2 + 'px';
+            }
+        }, 50)
+    }, false);
+    
+</script>
+</body>
+
+</html>

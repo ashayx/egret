@@ -1,0 +1,35 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,recruit_stop_png,interview_stop_png,swim_stop_png,stage_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "recruit_stop_png",
+			"type": "image",
+			"url": "assets/recruit_stop.png"
+		},
+		{
+			"name": "interview_stop_png",
+			"type": "image",
+			"url": "assets/interview_stop.png"
+		},
+		{
+			"name": "swim_stop_png",
+			"type": "image",
+			"url": "assets/swim_stop.png"
+		},
+		{
+			"name": "stage_png",
+			"type": "image",
+			"url": "assets/stage.png"
+		}
+	]
+}
