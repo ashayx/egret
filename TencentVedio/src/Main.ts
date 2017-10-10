@@ -5,7 +5,6 @@ class Main extends egret.DisplayObjectContainer {
      * Process interface loading
      */
     private loadingView: LoadingUI;
-    private _video:egret.Video;
 
     public constructor() {
         super();
@@ -112,8 +111,6 @@ class Main extends egret.DisplayObjectContainer {
         
         console.log(this.selectNumber)
         let vBox: HTMLVideoElement = (<HTMLVideoElement>document.getElementById("vBox"));
-        let v1: HTMLVideoElement = (<HTMLVideoElement>document.getElementById("v1"));
-        let v2: HTMLVideoElement = (<HTMLVideoElement>document.getElementById("v2"));
         let stopBtn: HTMLVideoElement = (<HTMLVideoElement>document.getElementById("stop_btn"));
         
         let stageW = this.stage.stageWidth;
@@ -272,27 +269,21 @@ class Main extends egret.DisplayObjectContainer {
 
         
 
-        
-        // vBox.style.display = "block" 
-        // v1.play();
-        
-
         startButton.touchEnabled = true;
         startButton.addEventListener( egret.TouchEvent.TOUCH_TAP, function() {
              vBox.style.display = "block" 
-             let videoID:any = `v${this.selectNumber}`
+             let videoID = `v${this.selectNumber}`
              this.selectNumber += 1
              console.log(this.selectNumber)
 
              let videoX: HTMLVideoElement = (<HTMLVideoElement>document.getElementById(videoID))
-             console.log(videoID) 
              videoX.style.display = 'block'
              videoX.play();
 
-              videoX.onended = function() {
-                console.log('播放完成')
+            videoX.onended = function() {
+                console.log('第一段播放完成')
                 stopBtn.style.display = "block"
-              };
+            };
 
             // 视频暂停时按钮
             stopBtn.addEventListener("touchstart", function (e) {
@@ -306,7 +297,10 @@ class Main extends egret.DisplayObjectContainer {
                 nextvideoX.play();
 
                 nextvideoX.onended = function() {
-                    console.log('播放完成2')
+                    console.log('第二段播放完成')
+                    vBox.style.display = "none" 
+                    nextvideoX.style.display = "none"
+                    that.createEndPage(that.selectNumber)
                 };   
 
             }, true);
@@ -329,7 +323,39 @@ class Main extends egret.DisplayObjectContainer {
                             .to( {scaleX :1,scaleY :1,rotation:0}, 200)
     }
 
-    private endPage
+    private createEndPage(selectNumber: number) {
+        console.log(selectNumber)
+
+        let stageW = this.stage.stageWidth;
+        let stageH = this.stage.stageHeight;
+
+        let endPage = this.createBitmapByName("stage_png");
+        this.addChild(endPage);
+        endPage.width = stageW;
+        endPage.height = stageH;
+        endPage.anchorOffsetX = stageW / 2;
+        endPage.anchorOffsetY = stageH / 2;
+        endPage.x += stageW / 2;
+        endPage.y += stageH / 2;
+
+        let backButton = this.createBitmapByName("stage_button_png");
+        this.addChild(backButton);
+        backButton.x = stageW * 0.4;
+        backButton.y = stageH * 0.85;
+        backButton.width = stageW * 0.2;
+        backButton.height = stageH * 0.12;
+        backButton.anchorOffsetX = stageW * 0.1;
+        backButton.anchorOffsetY = stageH * 0.06;
+        backButton.x += stageW * 0.1;
+        backButton.y += stageH * 0.06;
+       
+
+        backButton.touchEnabled = true;
+        backButton.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            this.removeChild(backButton)
+            this.removeChild(endPage)
+        }, this);
+    }
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
      * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.

@@ -96,8 +96,6 @@ var Main = (function (_super) {
     Main.prototype.createGameScene = function () {
         console.log(this.selectNumber);
         var vBox = document.getElementById("vBox");
-        var v1 = document.getElementById("v1");
-        var v2 = document.getElementById("v2");
         var stopBtn = document.getElementById("stop_btn");
         var stageW = this.stage.stageWidth;
         var stageH = this.stage.stageHeight;
@@ -229,8 +227,6 @@ var Main = (function (_super) {
         curtainTopAnimation.to({ y: -stageH / 5 }, 2500).call(function () {
             that.removeChild(curtainTop);
         });
-        // vBox.style.display = "block" 
-        // v1.play();
         startButton.touchEnabled = true;
         startButton.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
             vBox.style.display = "block";
@@ -238,11 +234,10 @@ var Main = (function (_super) {
             this.selectNumber += 1;
             console.log(this.selectNumber);
             var videoX = document.getElementById(videoID);
-            console.log(videoID);
             videoX.style.display = 'block';
             videoX.play();
             videoX.onended = function () {
-                console.log('播放完成');
+                console.log('第一段播放完成');
                 stopBtn.style.display = "block";
             };
             // 视频暂停时按钮
@@ -255,7 +250,10 @@ var Main = (function (_super) {
                 nextvideoX.style.display = "block";
                 nextvideoX.play();
                 nextvideoX.onended = function () {
-                    console.log('播放完成2');
+                    console.log('第二段播放完成');
+                    vBox.style.display = "none";
+                    nextvideoX.style.display = "none";
+                    that.createEndPage(that.selectNumber);
                 };
             }, true);
         }, this);
@@ -269,6 +267,34 @@ var Main = (function (_super) {
             .to({ scaleX: 1.2, scaleY: 1.2, rotation: -10 }, 200)
             .to({ scaleX: 1.2, scaleY: 1.2, rotation: -8 }, 200)
             .to({ scaleX: 1, scaleY: 1, rotation: 0 }, 200);
+    };
+    Main.prototype.createEndPage = function (selectNumber) {
+        console.log(selectNumber);
+        var stageW = this.stage.stageWidth;
+        var stageH = this.stage.stageHeight;
+        var endPage = this.createBitmapByName("stage_png");
+        this.addChild(endPage);
+        endPage.width = stageW;
+        endPage.height = stageH;
+        endPage.anchorOffsetX = stageW / 2;
+        endPage.anchorOffsetY = stageH / 2;
+        endPage.x += stageW / 2;
+        endPage.y += stageH / 2;
+        var backButton = this.createBitmapByName("stage_button_png");
+        this.addChild(backButton);
+        backButton.x = stageW * 0.4;
+        backButton.y = stageH * 0.85;
+        backButton.width = stageW * 0.2;
+        backButton.height = stageH * 0.12;
+        backButton.anchorOffsetX = stageW * 0.1;
+        backButton.anchorOffsetY = stageH * 0.06;
+        backButton.x += stageW * 0.1;
+        backButton.y += stageH * 0.06;
+        backButton.touchEnabled = true;
+        backButton.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            this.removeChild(backButton);
+            this.removeChild(endPage);
+        }, this);
     };
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
