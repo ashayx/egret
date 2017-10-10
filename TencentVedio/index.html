@@ -10,6 +10,7 @@
     <meta name="screen-orientation" content="portrait" />
     <meta name="x5-fullscreen" content="true" />
     <meta name="360-fullscreen" content="true" />
+
     <style>
         html, body {
             -ms-touch-action: none;
@@ -18,8 +19,11 @@
             border: 0;
             margin: 0;
             height: 100%;
+            width:100%;
+            overflow:hidden;
         }
     </style>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
 
 <body>
@@ -35,11 +39,11 @@
          data-show-fps="false" data-show-log="false"
          data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
     </div>
-        
-    <div id="vBox"
+        <!--./resource/assets/interview_1.mp4-->
+    <!--<div id="vBox"
         style="width: 100%;height: 100%;position: absolute;top:0;left:0;z-index: 99999;overflow: visible;display: none;">
         <video id="v1" 
-            src="./resource/assets/interview_1.mp4" 
+            src="http://res247.zhonya.cn/bailing/v.mp4" 
             width="1136"
             height="640" 
             x5-video-player-type="h5" 
@@ -47,15 +51,227 @@
             webkit-playsinline="true"
             playsinline="true" 
             x5-video-player-fullscreen="true" 
-            x5-video-orientation="portraint"
             poster="./resource/assets/interview_stop.png"
-            style="width: 100%;height: 100%;position: absolute;top:0;left:0;display: block;"
+            style="width: 130%;height: 130%;position: absolute;top:-17%;left:-17%;display: none;"
             >
         </video>
-    </div>
-    <!-- <div id="vBox" style="background-color: yellow;z-index: 9999;width: 100%;height: 100%;position: absolute;top: 0;left: 0">
-    </div> -->
+
+        <video id="v2" 
+            src="./resource/assets/interview_2.mp4" 
+            width="1136"
+            height="640" 
+            x5-video-player-type="h5" 
+            x5-video-player-fullscreen="true" 
+            webkit-playsinline="true"
+            playsinline="true" 
+            x5-video-player-fullscreen="true" 
+            x5-video-orientation="landscape"
+            poster="./resource/assets/interview_stop.png"
+            style="width: 130%;height: 130%;position: absolute;top:-17%;left:-17%;display: none;"
+            >
+        </video>
+
+        <video id="v3" 
+            src="./resource/assets/recruit_1.mp4" 
+            width="1136"
+            height="640" 
+            x5-video-player-type="h5" 
+            x5-video-player-fullscreen="true" 
+            webkit-playsinline="true"
+            playsinline="true" 
+            x5-video-player-fullscreen="true" 
+            x5-video-orientation="landscape"
+            poster="./resource/assets/recruit_stop.png"
+            style="width: 130%;height: 130%;position: absolute;top:-17%;left:-17%;display: none;"
+            >
+        </video>
+
+        <video id="v4" 
+            src="./resource/assets/recruit_2.mp4" 
+            width="1136"
+            height="640" 
+            x5-video-player-type="h5" 
+            x5-video-player-fullscreen="true" 
+            webkit-playsinline="true"
+            playsinline="true" 
+            x5-video-player-fullscreen="true" 
+            x5-video-orientation="landscape"
+            poster="./resource/assets/recruit_stop.png"
+            style="width: 130%;height: 130%;position: absolute;top:-17%;left:-17%;display: none;"
+            >
+        </video>
+
+        <video id="v5" 
+            src="./resource/assets/swim_1.mp4" 
+            width="1136"
+            height="640" 
+            x5-video-player-type="h5" 
+            x5-video-player-fullscreen="true" 
+            webkit-playsinline="true"
+            playsinline="true" 
+            x5-video-player-fullscreen="true" 
+            x5-video-orientation="landscape"
+            poster="./resource/assets/swim_stop.png"
+            style="width: 130%;height: 130%;position: absolute;top:-17%;left:-17%;display: none;"
+            >
+        </video>
+
+        <video id="v6" 
+            src="./resource/assets/swim_2.mp4" 
+            width="1136"
+            height="640" 
+            x5-video-player-type="h5" 
+            x5-video-player-fullscreen="true" 
+            webkit-playsinline="true"
+            playsinline="true" 
+            x5-video-player-fullscreen="true" 
+            x5-video-orientation="landscape"
+            poster="./resource/assets/swim_stop.png"
+            style="width: 130%;height: 130%;position: absolute;top:-17%;left:-17%;display: none;"
+            >
+        </video>
+
+        <div id="stop_btn" style="width: 30%;height: 22%;position: absolute;bottom: 10%;left:35%;display: block;display: none;">
+            <img src="./resource/assets/stop_button.png" alt="" style="width: 100%;height: 100%;">
+        </div>
+    </div>-->
+
+    <div id="vBox"
+		 style="width: 100%;height: 100%;position: absolute;top:0;left:0;display:none;z-index: 99999;overflow: hidden;">
+		<div id="vContent" style="width: 100%;height: 100%;position: absolute;top:0;left:0;overflow: hidden;">
+			<video id="v1"  src="http://h5.sjzzimu.com/TencentVideo/Interview_1.mp4" 
+                            playsinline 
+                            webkit-playsinline 
+                            preload="auto" 
+                            width="1048" 
+                            height="480"
+				            x5-video-player-type="h5" 
+                            x5-video-player-fullscreen="true"
+                            style="-webkit-transform:rotate(90deg);width: 100%;height: 100%;position: absolute;top:0;left:0;object-fit: fill;z-index: -99;display: none">
+            </video>
+
+            <video id="v2"  src="http://h5.sjzzimu.com/TencentVideo/interview_2.mp4" 
+                            playsinline 
+                            webkit-playsinline 
+                            preload="auto" 
+                            width="1048" 
+                            height="480"
+				            x5-video-player-type="h5" 
+                            x5-video-player-fullscreen="true"
+                            poster="./resource/assets/interview_stop.png"
+                            style="-webkit-transform:rotate(90deg);width: 100%;height: 100%;position: absolute;top:0;left:0;object-fit: fill;z-index: -99;display: none">
+            </video>
+
+            <video id="v3"  src="http://h5.sjzzimu.com/TencentVideo/recruit_1.mp4" 
+                            playsinline 
+                            webkit-playsinline 
+                            preload="auto" 
+                            width="1048" 
+                            height="480"
+				            x5-video-player-type="h5" 
+                            x5-video-player-fullscreen="true"
+                            style="-webkit-transform:rotate(90deg);width: 100%;height: 100%;position: absolute;top:0;left:0;object-fit: fill;z-index: -99;display: none">
+            </video>
+
+            <video id="v4"  src="http://h5.sjzzimu.com/TencentVideo/recruit_2.mp4" 
+                            playsinline 
+                            webkit-playsinline 
+                            preload="auto" 
+                            width="1048" 
+                            height="480"
+				            x5-video-player-type="h5" 
+                            x5-video-player-fullscreen="true"
+                            poster="./resource/assets/recruit_stop.png"
+                            style="-webkit-transform:rotate(90deg);width: 100%;height: 100%;position: absolute;top:0;left:0;object-fit: fill;z-index: -99;display: none">
+            </video>
+
+            <video id="v5"  src="http://h5.sjzzimu.com/TencentVideo/swim_1.mp4" 
+                            playsinline 
+                            webkit-playsinline 
+                            preload="auto" 
+                            width="1048" 
+                            height="480"
+				            x5-video-player-type="h5" 
+                            x5-video-player-fullscreen="true"
+                            style="-webkit-transform:rotate(90deg);width: 100%;height: 100%;position: absolute;top:0;left:0;object-fit: fill;z-index: -99;display: none">
+            </video>
+
+            <video id="v6"  src="http://h5.sjzzimu.com/TencentVideo/swim_2.mp4" 
+                            playsinline 
+                            webkit-playsinline 
+                            preload="auto" 
+                            width="1048" 
+                            height="480"
+				            x5-video-player-type="h5" 
+                            x5-video-player-fullscreen="true"
+                            poster="./resource/assets/swim_stop.png"
+                            style="-webkit-transform:rotate(90deg);width: 100%;height: 100%;position: absolute;top:0;left:0;object-fit: fill;z-index: -99;display: none">
+            </video>
+
+            <div id="stop_btn" style="width: 30%;height: 22%;position: absolute;bottom: 10%;left:35%;display: block;display: none;">
+                <img src="./resource/assets/stop_button.png" alt="" style="width: 100%;height: 100%;">
+            </div>
+		</div>
+
+	</div>
+    
 <script>
+
+    function resize(){
+        var x = document.body.clientHeight;
+        var y = document.body.clientWidth;
+        console.log(x,y)
+        if(x > y){
+            //竖屏
+            $("#v1, #v2, #v3, #v4, #v5, #v6").css("-webkit-transform","rotate(90deg)");
+        }else{
+            //横屏
+            $("#v1, #v2, #v3, #v4, #v5, #v6").css("-webkit-transform","rotate(0deg)");
+        }
+        var bl = y / x;
+        inti(bl);
+    }
+
+    $(document).ready(function(){
+        resize();
+        window.onresize = resize;
+    });
+
+
+    function inti(bl) {
+        var w = document.body.clientWidth;
+        var h = document.body.clientHeight;
+        var designW = 1048;
+        var designH = 480;
+        // var bl = w / h;
+        if (designW / designH > bl) {
+            // 按高度      
+            var scale = h / designH;
+            $("#vContent").css({
+                "height": "100%",
+                "width": designW * scale,
+                "left": -(designW * scale - w) / 2
+            });
+        } else {
+            // 按宽度
+            var scale = w / designW;
+            $("#vContent").css({
+            "width": "100%",
+            "height": designH * scale,
+            "top": -(designH * scale - h) / 2
+            });
+        }
+    }
+
+     function ss() {
+        var m = document.getElementById('v1');
+        var n = document.getElementById('vBox');
+        n.style.display = "block";
+        m.style.display = "block";
+        m.play();
+    }
+    
+
     var loadScript = function (list, callback) {
         var loaded = 0;
         var loadNext = function () {
@@ -71,7 +287,7 @@
         };
         loadNext();
     };
-
+    
     var loadSingleScript = function (src, callback) {
         var s = document.createElement('script');
         s.async = false;
@@ -102,50 +318,59 @@
         });
     });
     xhr.send(null);
+    
+    document.getElementById("vBox").addEventListener("touchstart", function (e) {
+        e.preventDefault();
+    }, true);
+    
+    
+    // const log = console.log.bind(console)
+    // const WIDTH = document.documentElement.scrollWidth
+    // const HEIGHT = document.documentElement.scrollHeight
+    // const MAX = WIDTH > HEIGHT ? WIDTH : HEIGHT
+    // const MIN = WIDTH < HEIGHT ? WIDTH : HEIGHT
+    // const contentDOM = document.getElementById('vBox')
+    // //如果是竖屏
+    // if (WIDTH < HEIGHT) {
+    //     log('竖屏')
+    //     contentDOM.style.width = MAX + 'px';
+    //     contentDOM.style.height = MIN + 'px';
+    //     contentDOM.style.top = (MAX - MIN) / 2 + 'px';
+    //     contentDOM.style.left = 0 - (MAX - MIN) / 2 + 'px';
+    //     contentDOM.style.transform = 'rotate(90deg)';
+    // }
 
-    const log = console.log.bind(console)
-    const WIDTH = document.documentElement.scrollWidth
-    const HEIGHT = document.documentElement.scrollHeight
-    const MAX = WIDTH > HEIGHT ? WIDTH : HEIGHT
-    const MIN = WIDTH < HEIGHT ? WIDTH : HEIGHT
-    const contentDOM = document.getElementById('vBox')
-    //如果是竖屏
-    if (WIDTH < HEIGHT) {
-        log('竖屏')
-        contentDOM.style.width = MAX + 'px';
-        contentDOM.style.height = MIN + 'px';
-        contentDOM.style.top = (MAX - MIN) / 2 + 'px';
-        contentDOM.style.left = 0 - (MAX - MIN) / 2 + 'px';
-        contentDOM.style.transform = 'rotate(90deg)';
-    }
+    // const evt = "onorientationchange" in window ? "orientationchange" : "resize";
 
-    const evt = "onorientationchange" in window ? "orientationchange" : "resize";
-
-    window.addEventListener(evt, function () {
+    // window.addEventListener(evt, function () {
         
         //微信的orientationchange有延迟
-        setTimeout(function () {
-            let width = document.documentElement.scrollWidth
-            let height = document.documentElement.scrollHeight
+        // setTimeout(function () {
+            // let width = document.body.clientWidth;
+            // let height = document.body.clientHeight;
             // alert(width  )
             // alert(height)
-            if ( width > height) { // 横屏
-                contentDOM.style.transform = 'rotate(0)';
-                contentDOM.style.width = MAX + 'px';
-                contentDOM.style.height = MIN + 'px';
-                contentDOM.style.top = '0px';
-                contentDOM.style.left = '0px';
-            }
-            else {
+            // if ( width > height) { // 横屏
+                // alert("1");
+                // contentDOM.style.transform = 'rotate(0)';
+                // contentDOM.style.width = MAX + 'px';
+                // contentDOM.style.height = MIN + 'px';
+                // contentDOM.style.top = '0px';
+                // contentDOM.style.left = '0px';
+                // $("#v1").css("-webkit-transform","rotate(0deg)");
+            // }
+            // else {
                 // alert('竖屏')
-                contentDOM.style.transform = 'rotate(90deg)';
-                contentDOM.style.width = MAX + 'px';
-                contentDOM.style.height = MIN + 'px';
-                contentDOM.style.top = (MAX - MIN) / 2 + 'px';
-                contentDOM.style.left = 0 - (MAX - MIN) / 2 + 'px';
-            }
-        }, 50)
-    }, false);
+                // contentDOM.style.transform = 'rotate(90deg)';
+                // contentDOM.style.width = MAX + 'px';
+                // contentDOM.style.height = MIN + 'px';
+                // contentDOM.style.top = (MAX - MIN) / 2 + 'px';
+                // contentDOM.style.left = 0 - (MAX - MIN) / 2 + 'px';
+                // $("#v1").css("-webkit-transform","rotate(90deg)");
+            // }
+        // }, 50)
+    // }, false);
+    
     
 </script>
 </body>

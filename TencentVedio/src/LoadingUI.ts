@@ -14,7 +14,7 @@ class LoadingUI extends egret.Sprite {
         this.textField = new egret.TextField();
         this.textField.textColor = 0x336699;
         this.textField.x = 100;
-        this.textField.y = 600;
+        this.textField.y = 150;
         this.textField.width = 480;
         this.textField.height = 100;
         this.textField.textAlign = "center";
@@ -28,7 +28,7 @@ class LoadingUI extends egret.Sprite {
     }
 
     private onAddToStage(event:egret.Event) {
-        RES.getResByUrl('resource/assets/stage.png',this.onComplete,this,RES.ResourceItem.TYPE_IMAGE);
+        RES.getResByUrl('../resource/assets/stage.png',this.onComplete,this,RES.ResourceItem.TYPE_IMAGE);
     }
 
     private onComplete(event:any):void {

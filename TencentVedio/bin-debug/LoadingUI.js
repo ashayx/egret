@@ -24,7 +24,7 @@ var LoadingUI = (function (_super) {
         this.textField = new egret.TextField();
         this.textField.textColor = 0x336699;
         this.textField.x = 100;
-        this.textField.y = 600;
+        this.textField.y = 150;
         this.textField.width = 480;
         this.textField.height = 100;
         this.textField.textAlign = "center";
@@ -36,7 +36,7 @@ var LoadingUI = (function (_super) {
         this.textField.text = "loading..." + score + "%";
     };
     LoadingUI.prototype.onAddToStage = function (event) {
-        RES.getResByUrl('resource/assets/stage.png', this.onComplete, this, RES.ResourceItem.TYPE_IMAGE);
+        RES.getResByUrl('../resource/assets/stage.png', this.onComplete, this, RES.ResourceItem.TYPE_IMAGE);
     };
     LoadingUI.prototype.onComplete = function (event) {
         var img = event;

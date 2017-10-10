@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,recruit_stop_png,interview_stop_png,swim_stop_png,stage_png",
+			"keys": "description_json,recruit_stop_png,interview_stop_png,swim_stop_png,stage_png,person_png,curtain_right_png,curtain_top_png,curtain_left_png,lighting_png,stage_button_png,stage_left_png,stage_right_png,stop_button_png",
 			"name": "preload"
 		}
 	],
@@ -30,6 +30,51 @@
 			"name": "stage_png",
 			"type": "image",
 			"url": "assets/stage.png"
+		},
+		{
+			"name": "person_png",
+			"type": "image",
+			"url": "assets/person.png"
+		},
+		{
+			"name": "curtain_right_png",
+			"type": "image",
+			"url": "assets/curtain_right.png"
+		},
+		{
+			"name": "curtain_top_png",
+			"type": "image",
+			"url": "assets/curtain_top.png"
+		},
+		{
+			"name": "curtain_left_png",
+			"type": "image",
+			"url": "assets/curtain_left.png"
+		},
+		{
+			"name": "lighting_png",
+			"type": "image",
+			"url": "assets/lighting.png"
+		},
+		{
+			"name": "stage_button_png",
+			"type": "image",
+			"url": "assets/stage_button.png"
+		},
+		{
+			"name": "stage_left_png",
+			"type": "image",
+			"url": "assets/stage_left.png"
+		},
+		{
+			"name": "stage_right_png",
+			"type": "image",
+			"url": "assets/stage_right.png"
+		},
+		{
+			"name": "stop_button_png",
+			"type": "image",
+			"url": "assets/stop_button.png"
 		}
 	]
 }
