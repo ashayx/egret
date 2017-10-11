@@ -134,15 +134,14 @@
                 "transform": "rotate(90deg)",
                 "left": - (h - w) / 2,
                 "top": (h - w) / 2,
-                
             })
-            // var scale = x / designH;
-            // $("#vContent").css({
-            //     "height": "100%",
-            //     "width": designW * scale,
-            //     "left": -(designW * scale - x) / 2
-            // })
-            // $("#vContent").css("-webkit-transform","rotate(90deg)");
+            $("#stop_btn").css({
+                "left": w * 0.1 - (- w * 0.22 + h * 0.3) / 2,
+                "bottom": h * 0.35 + (- w * 0.22 + h * 0.3) / 2,
+                "width": h * 0.3,
+                "height": w * 0.22,  
+                "-webkit-transform": "rotate(90deg)",
+            });
         }else{
             //横屏
             $('#vContent > video').attr({ 'width': w, 'height': h })
@@ -152,13 +151,13 @@
                 "top": 0,
 
             })
-            // var scale = h / designH;
-            // $("#vContent").css({
-            //     "height": "100%",
-            //     "width": designW * scale,
-            //     "left": -(designW * scale - w) / 2
-            // })
-            // $("#v1, #v2, #v3, #v4, #v5, #v6, #stop_btn").css("-webkit-transform","rotate(0deg)");
+            $("#stop_btn").css({
+                "left": "35%",
+                "bottom": "10%",
+                "width": "30%",
+                "height": "22%",
+                "-webkit-transform": "rotate(0deg)",
+            });
         }
     }
 

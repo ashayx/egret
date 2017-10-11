@@ -11,89 +11,14 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var Main = (function (_super) {
-    __extends(Main, _super);
-    function Main() {
+var Welcome = (function (_super) {
+    __extends(Welcome, _super);
+    function Welcome() {
         var _this = _super.call(this) || this;
-        _this.addEventListener(egret.Event.ADDED_TO_STAGE, _this.onAddToStage, _this);
+        _this.addEventListener(egret.Event.ADDED_TO_STAGE, _this.createGameScene, _this);
         return _this;
     }
-    Main.prototype.onAddToStage = function (event) {
-        egret.lifecycle.addLifecycleListener(function (context) {
-            // custom lifecycle plugin
-            context.onUpdate = function () {
-                // console.log('hello,world')
-            };
-        });
-        egret.lifecycle.onPause = function () {
-            egret.ticker.pause();
-        };
-        egret.lifecycle.onResume = function () {
-            egret.ticker.resume();
-        };
-        //设置加载进度界面
-        //Config to load process interface
-        this.loadingView = new LoadingUI();
-        this.stage.addChild(this.loadingView);
-        //初始化Resource资源加载库
-        //initiate Resource loading library
-        RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
-        RES.loadConfig("resource/default.res.json", "resource/");
-    };
-    /**
-     * 配置文件加载完成,开始预加载preload资源组。
-     * configuration file loading is completed, start to pre-load the preload resource group
-     */
-    Main.prototype.onConfigComplete = function (event) {
-        RES.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
-        RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
-        RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
-        RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
-        RES.addEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, this.onItemLoadError, this);
-        RES.loadGroup("preload");
-    };
-    /**
-     * preload资源组加载完成
-     * Preload resource group is loaded
-     */
-    Main.prototype.onResourceLoadComplete = function (event) {
-        if (event.groupName == "preload") {
-            this.stage.removeChild(this.loadingView);
-            RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
-            RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
-            RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
-            RES.removeEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, this.onItemLoadError, this);
-            this.createGameScene();
-        }
-    };
-    /**
-     * 资源组加载出错
-     *  The resource group loading failed
-     */
-    Main.prototype.onItemLoadError = function (event) {
-        console.warn("Url:" + event.resItem.url + " has failed to load");
-    };
-    /**
-     * 资源组加载出错
-     *  The resource group loading failed
-     */
-    Main.prototype.onResourceLoadError = function (event) {
-        //TODO
-        console.warn("Group:" + event.groupName + " has failed to load");
-        //忽略加载失败的项目
-        //Ignore the loading failed projects
-        this.onResourceLoadComplete(event);
-    };
-    /**
-     * preload资源组加载进度
-     * Loading process of preload resource group
-     */
-    Main.prototype.onResourceProgress = function (event) {
-        if (event.groupName == "preload") {
-            this.loadingView.setProgress(event.itemsLoaded, event.itemsTotal);
-        }
-    };
-    Main.prototype.createGameScene = function () {
+    Welcome.prototype.createGameScene = function () {
         console.log(this.selectNumber);
         var vBox = document.getElementById("vBox");
         var stopBtn = document.getElementById("stop_btn");
@@ -128,37 +53,37 @@ var Main = (function (_super) {
         stageTop.y = 0;
         var person = this.createBitmapByName("person_png");
         this.addChild(person);
-        person.width = stageW;
-        person.height = stageH / 2;
-        person.x = 0;
-        person.y = stageH * 0.35;
+        person.width = stageW * .42;
+        person.height = stageW * .42 * .61;
+        person.x = stageW * .29;
+        person.y = stageH * 0.40;
         var lighting = this.createBitmapByName("lighting_png");
         this.addChild(lighting);
         lighting.width = stageW * 0.2;
         lighting.height = stageH;
-        lighting.x = stageW * 0.24;
+        lighting.x = stageW * 0.27;
         lighting.y = 0;
         lighting.alpha = 0;
         var spr1 = new egret.Sprite();
         spr1.graphics.beginFill(0xffffff, 0);
-        spr1.graphics.drawRect(0, 0, 90, 100);
+        spr1.graphics.drawRect(0, 0, stageW * 0.42 / 3, 100);
         spr1.graphics.endFill();
-        spr1.x = stageW * 0.27;
+        spr1.x = stageW * 0.28;
         spr1.y = stageH * 0.46;
         this.addChild(spr1);
         console.log(stageH, stageW);
         var spr2 = new egret.Sprite();
         spr2.graphics.beginFill(0xffffff, 0);
-        spr2.graphics.drawRect(0, 0, 90, 100);
+        spr2.graphics.drawRect(0, 0, stageW * 0.42 / 3, 100);
         spr2.graphics.endFill();
-        spr2.x = stageW * 0.27 + 100;
+        spr2.x = stageW * 0.28 + stageW * 0.42 / 3;
         spr2.y = stageH * 0.46;
         this.addChild(spr2);
         var spr3 = new egret.Sprite();
         spr3.graphics.beginFill(0xffffff, 0);
-        spr3.graphics.drawRect(0, 0, 90, 120);
+        spr3.graphics.drawRect(0, 0, stageW * 0.42 / 3, 120);
         spr3.graphics.endFill();
-        spr3.x = stageW * 0.27 + 200;
+        spr3.x = stageW * 0.28 + stageW * 0.42 / 3 * 2;
         spr3.y = stageH * 0.40;
         this.addChild(spr3);
         var startButton = this.createBitmapByName("stage_button_png");
@@ -166,15 +91,15 @@ var Main = (function (_super) {
         startButton.x = stageW * 0.4;
         startButton.y = stageH * 0.85;
         startButton.width = stageW * 0.2;
-        startButton.height = stageH * 0.12;
+        startButton.height = stageW * 0.2 * 0.43;
         startButton.anchorOffsetX = stageW * 0.1;
-        startButton.anchorOffsetY = stageH * 0.06;
+        startButton.anchorOffsetY = stageW * 0.2 * 0.43 / 2;
         startButton.x += stageW * 0.1;
-        startButton.y += stageH * 0.06;
+        startButton.y += stageW * 0.2 * 0.43 / 2;
         startButton.alpha = 0;
         spr1.touchEnabled = true;
         spr1.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            lighting.x = stageW * 0.24;
+            lighting.x = stageW * 0.27;
             lighting.alpha = 1;
             this.buttonAnimation(startButton);
             this.selectNumber = 1;
@@ -191,7 +116,7 @@ var Main = (function (_super) {
         }, this);
         spr3.touchEnabled = true;
         spr3.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            lighting.x = stageW * 0.55;
+            lighting.x = stageW * 0.53;
             lighting.alpha = 1;
             this.buttonAnimation(startButton);
             this.selectNumber = 5;
@@ -215,6 +140,12 @@ var Main = (function (_super) {
         curtainTop.height = stageH / 5;
         curtainTop.x = 0;
         curtainTop.y = 0;
+        var logo = this.createBitmapByName("logo_png");
+        this.addChild(logo);
+        logo.width = stageW * 0.4;
+        logo.height = stageW * 0.08;
+        logo.x = stageW * 0.3;
+        logo.y = stageH * 0.1;
         var curtainLeftAnimation = egret.Tween.get(curtainLeft);
         curtainLeftAnimation.to({ x: -stageW / 2 }, 2500).call(function () {
             that.removeChild(curtainLeft);
@@ -231,34 +162,42 @@ var Main = (function (_super) {
         startButton.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
             vBox.style.display = "block";
             var videoID = "v" + this.selectNumber;
-            this.selectNumber += 1;
-            console.log(this.selectNumber);
             var videoX = document.getElementById(videoID);
             videoX.style.display = 'block';
             videoX.play();
-            videoX.onended = function () {
-                console.log('第一段播放完成');
+            that.selectNumber += 1;
+            function videoXEnd() {
                 stopBtn.style.display = "block";
-            };
+                console.log('第一段播放完成', that.selectNumber);
+            }
+            videoX.addEventListener('ended', videoXEnd, false);
             // 视频暂停时按钮
-            stopBtn.addEventListener("touchstart", function (e) {
+            function nextvideoXPlay() {
+                // 移除第一段视频监听
+                videoX.removeEventListener('ended', videoXEnd, false);
                 var nextVideoID = "v" + that.selectNumber;
-                console.log(nextVideoID);
+                console.log('播放', nextVideoID);
                 var nextvideoX = document.getElementById(nextVideoID);
                 videoX.style.display = "none";
                 stopBtn.style.display = 'none';
                 nextvideoX.style.display = "block";
                 nextvideoX.play();
-                nextvideoX.onended = function () {
+                that.stage.addChild(new End(that.selectNumber));
+                that.stage.removeChild(that);
+                function nextvideoXEnd() {
                     console.log('第二段播放完成');
                     vBox.style.display = "none";
                     nextvideoX.style.display = "none";
-                    that.createEndPage(that.selectNumber);
-                };
-            }, true);
+                    // 移除点击和第二视频监听
+                    stopBtn.removeEventListener("touchstart", nextvideoXPlay, false);
+                    nextvideoX.removeEventListener('ended', nextvideoXEnd, false);
+                }
+                nextvideoX.addEventListener('ended', nextvideoXEnd, false);
+            }
+            stopBtn.addEventListener("touchstart", nextvideoXPlay, false);
         }, this);
     };
-    Main.prototype.buttonAnimation = function (startButton) {
+    Welcome.prototype.buttonAnimation = function (startButton) {
         var startButtonAnimation = egret.Tween.get(startButton);
         startButtonAnimation.to({ alpha: 1 }, 100)
             .to({ scaleX: 1.2, scaleY: 1.2, rotation: 10 }, 200)
@@ -268,44 +207,16 @@ var Main = (function (_super) {
             .to({ scaleX: 1.2, scaleY: 1.2, rotation: -8 }, 200)
             .to({ scaleX: 1, scaleY: 1, rotation: 0 }, 200);
     };
-    Main.prototype.createEndPage = function (selectNumber) {
-        console.log(selectNumber);
-        var stageW = this.stage.stageWidth;
-        var stageH = this.stage.stageHeight;
-        var endPage = this.createBitmapByName("stage_png");
-        this.addChild(endPage);
-        endPage.width = stageW;
-        endPage.height = stageH;
-        endPage.anchorOffsetX = stageW / 2;
-        endPage.anchorOffsetY = stageH / 2;
-        endPage.x += stageW / 2;
-        endPage.y += stageH / 2;
-        var backButton = this.createBitmapByName("stage_button_png");
-        this.addChild(backButton);
-        backButton.x = stageW * 0.4;
-        backButton.y = stageH * 0.85;
-        backButton.width = stageW * 0.2;
-        backButton.height = stageH * 0.12;
-        backButton.anchorOffsetX = stageW * 0.1;
-        backButton.anchorOffsetY = stageH * 0.06;
-        backButton.x += stageW * 0.1;
-        backButton.y += stageH * 0.06;
-        backButton.touchEnabled = true;
-        backButton.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            this.removeChild(backButton);
-            this.removeChild(endPage);
-        }, this);
-    };
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
      * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
      */
-    Main.prototype.createBitmapByName = function (name) {
+    Welcome.prototype.createBitmapByName = function (name) {
         var result = new egret.Bitmap();
         var texture = RES.getRes(name);
         result.texture = texture;
         return result;
     };
-    return Main;
-}(egret.DisplayObjectContainer));
-__reflect(Main.prototype, "Main");
+    return Welcome;
+}(egret.Sprite));
+__reflect(Welcome.prototype, "Welcome");

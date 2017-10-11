@@ -22,7 +22,7 @@ var LoadingUI = (function (_super) {
     LoadingUI.prototype.createView = function () {
         // 百分比进度
         this.textField = new egret.TextField();
-        this.textField.textColor = 0x336699;
+        this.textField.textColor = 0xffffff;
         this.textField.x = 100;
         this.textField.y = 150;
         this.textField.width = 480;
@@ -33,19 +33,21 @@ var LoadingUI = (function (_super) {
         // this.textField.text = `Loading...${current}/${total}`;
         var loadScore = "" + current / total;
         var score = Math.floor(loadScore * 100);
-        this.textField.text = "loading..." + score + "%";
+        this.textField.text = score + "%";
     };
     LoadingUI.prototype.onAddToStage = function (event) {
-        RES.getResByUrl('../resource/assets/stage.png', this.onComplete, this, RES.ResourceItem.TYPE_IMAGE);
+        RES.getResByUrl('../resource/assets/loading_bg.png', this.onComplete, this, RES.ResourceItem.TYPE_IMAGE);
     };
     LoadingUI.prototype.onComplete = function (event) {
+        var stageW = this.stage.stageWidth;
+        var stageH = this.stage.stageHeight;
         var img = event;
-        var bitmap = new egret.Bitmap(img);
-        bitmap.x = 0;
-        bitmap.y = 0;
-        bitmap.width = 640;
-        bitmap.height = 1136;
-        this.addChild(bitmap);
+        var bg = new egret.Bitmap(img);
+        bg.x = 0;
+        bg.y = 0;
+        bg.width = stageW;
+        bg.height = stageH;
+        this.addChild(bg);
         this.addChild(this.textField);
     };
     return LoadingUI;

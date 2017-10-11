@@ -7,12 +7,11 @@ class LoadingUI extends egret.Sprite {
     }
 
     private textField:egret.TextField;
-    private loadingBg:egret.Bitmap;
 
     private createView():void {
         // 百分比进度
         this.textField = new egret.TextField();
-        this.textField.textColor = 0x336699;
+        this.textField.textColor = 0xffffff;
         this.textField.x = 100;
         this.textField.y = 150;
         this.textField.width = 480;
@@ -24,21 +23,26 @@ class LoadingUI extends egret.Sprite {
         // this.textField.text = `Loading...${current}/${total}`;
         let loadScore:any = `${current/total}`;
         let score = Math.floor( loadScore *100);
-        this.textField.text = `loading...${score}%`
+        this.textField.text = `${score}%`
     }
 
     private onAddToStage(event:egret.Event) {
-        RES.getResByUrl('../resource/assets/stage.png',this.onComplete,this,RES.ResourceItem.TYPE_IMAGE);
+        RES.getResByUrl('../resource/assets/loading_bg.png',this.onComplete,this,RES.ResourceItem.TYPE_IMAGE);
     }
 
     private onComplete(event:any):void {
+        let stageW = this.stage.stageWidth;
+        let stageH = this.stage.stageHeight;
+
         var img: egret.Texture = <egret.Texture>event;
-        var bitmap: egret.Bitmap = new egret.Bitmap(img);
-        bitmap.x = 0;
-        bitmap.y = 0;
-        bitmap.width = 640;
-        bitmap.height = 1136;
-        this.addChild(bitmap);
+        var bg: egret.Bitmap = new egret.Bitmap(img);
+        bg.x = 0;
+        bg.y = 0;
+        bg.width = stageW;
+        bg.height = stageH;
+        
+        this.addChild(bg);
         this.addChild(this.textField);
     }
+    
 }
