@@ -163,6 +163,8 @@ var Welcome = (function (_super) {
             vBox.style.display = "block";
             var videoID = "v" + this.selectNumber;
             var videoX = document.getElementById(videoID);
+            var img = document.getElementById('img1');
+            img.style.display = 'block';
             videoX.style.display = 'block';
             videoX.play();
             that.selectNumber += 1;
@@ -182,6 +184,7 @@ var Welcome = (function (_super) {
                 stopBtn.style.display = 'none';
                 nextvideoX.style.display = "block";
                 nextvideoX.play();
+                img.style.display = 'none';
                 that.stage.addChild(new End(that.selectNumber));
                 that.stage.removeChild(that);
                 function nextvideoXEnd() {

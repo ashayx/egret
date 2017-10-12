@@ -43,6 +43,9 @@
     <div id="vBox"
 		 style="width: 100%;height: 100%;position: absolute;top:0;left:0;display:none;z-index: 99999;overflow: hidden;">
 		<div id="vContent" style="width: 100%;height: 100%;position: absolute;top:0;left:0;overflow: hidden;">
+            <div id="img1" style="width: 100%;height: 100%;display:none;z-index: -99">
+                <img src="./resource/assets/recruit_stop.png" alt="" style="width: 100%;height: 100%">
+            </div>
 			<video id="v1"  src="http://h5.sjzzimu.com/TencentVideo/Interview_1.mp4" 
                             playsinline 
                             webkit-playsinline 
@@ -74,7 +77,7 @@
                             height="480"
 				            x5-video-player-type="h5" 
                             x5-video-player-fullscreen="true"
-                            style="position: absolute;top:0;left:0;object-fit: fill;z-index: -99;display: none">
+                            style="position: absolute;top:0;left:0;object-fit: fill;z-index: 99;display: none">
             </video>
 
             <video id="v4"  src="http://h5.sjzzimu.com/TencentVideo/recruit_2.mp4" 
@@ -86,7 +89,7 @@
 				            x5-video-player-type="h5" 
                             x5-video-player-fullscreen="true"
                             poster="./resource/assets/recruit_stop.png"
-                            style="position: absolute;top:0;left:0;object-fit: fill;z-index: -99;display: none">
+                            style="position: absolute;top:0;left:0;object-fit: fill;z-index: 99;display: none">
             </video>
 
             <video id="v5"  src="http://h5.sjzzimu.com/TencentVideo/swim_1.mp4" 
@@ -113,7 +116,7 @@
             </video>
 
             <div id="stop_btn" style="width: 30%;height: 22%;position: absolute;bottom: 10%;left:35%;display: block;display: none;">
-                <img src="./resource/assets/stop_button.png" alt="" style="width: 100%;height: 100%;">
+                <img src="./resource/assets/stop_button.png" alt="" style="width: 100%;height: 100%;z-index: 999">
             </div>
 		</div>
 

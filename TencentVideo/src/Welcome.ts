@@ -184,6 +184,8 @@ class Welcome extends egret.Sprite{
             let videoID = `v${this.selectNumber}`
 
             let videoX: HTMLVideoElement = (<HTMLVideoElement>document.getElementById(videoID))
+            let img: HTMLVideoElement = (<HTMLVideoElement>document.getElementById('img1'))
+            img.style.display = 'block'
             videoX.style.display = 'block'
             videoX.play();
             that.selectNumber += 1
@@ -212,7 +214,7 @@ class Welcome extends egret.Sprite{
 
 
                 nextvideoX.play();
- 
+                img.style.display = 'none'
 
 
                 that.stage.addChild(new End(that.selectNumber));
