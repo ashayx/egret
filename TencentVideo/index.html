@@ -132,7 +132,7 @@
 
         if(w < h){
             //竖屏
-            $('#vContent > video').attr({ 'width': h, 'height': w })
+            $('#vContent > video').attr({ 'width': w * 1048 / 480, 'height': w })
             $("#vContent > video").css({
                 "transform": "rotate(90deg)",
                 "left": - (h - w) / 2,
@@ -147,7 +147,7 @@
             });
         }else{
             //横屏
-            $('#vContent > video').attr({ 'width': w, 'height': h })
+            $('#vContent > video').attr({ 'width': h * 1048/480, 'height': h })
             $("#vContent > video").css({
                 "transform": "rotate(0deg)",
                 "left": - 0,
