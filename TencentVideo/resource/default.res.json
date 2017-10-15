@@ -1,0 +1,180 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,logo_png,endpage_1_png,endpage_1_word2_png,endpage_1_word1_png,endpage_2_png,endpage_2_word1_png,endpage_2_word2_png,endpage_3_png,endpage_3_word1_png,endpage_3_word2_png,endpage_button_png,endpage_spr_1_png,endpage_spr_2_png,endpage_spr_3_png,endpage_title_png,interview_stop_png,lighting_png,person_png,recruit_stop_png,stage_png,stage_button_png,stage_left_png,stage_right_png,stop_button_png,swim_stop_png,back_1_png,back_2_png,curtain_left_png,curtain_right_png,curtain_top_png,loading_bg_png,loading_tip_png,loading_title_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "endpage_1_png",
+			"type": "image",
+			"url": "assets/endpage_1.png"
+		},
+		{
+			"name": "endpage_1_word2_png",
+			"type": "image",
+			"url": "assets/endpage_1_word2.png"
+		},
+		{
+			"name": "endpage_1_word1_png",
+			"type": "image",
+			"url": "assets/endpage_1_word1.png"
+		},
+		{
+			"name": "endpage_2_png",
+			"type": "image",
+			"url": "assets/endpage_2.png"
+		},
+		{
+			"name": "logo_png",
+			"type": "image",
+			"url": "assets/logo.png"
+		},
+		{
+			"name": "endpage_2_word1_png",
+			"type": "image",
+			"url": "assets/endpage_2_word1.png"
+		},
+		{
+			"name": "endpage_2_word2_png",
+			"type": "image",
+			"url": "assets/endpage_2_word2.png"
+		},
+		{
+			"name": "endpage_3_png",
+			"type": "image",
+			"url": "assets/endpage_3.png"
+		},
+		{
+			"name": "endpage_3_word1_png",
+			"type": "image",
+			"url": "assets/endpage_3_word1.png"
+		},
+		{
+			"name": "endpage_3_word2_png",
+			"type": "image",
+			"url": "assets/endpage_3_word2.png"
+		},
+		{
+			"name": "endpage_button_png",
+			"type": "image",
+			"url": "assets/endpage_button.png"
+		},
+		{
+			"name": "endpage_spr_1_png",
+			"type": "image",
+			"url": "assets/endpage_spr_1.png"
+		},
+		{
+			"name": "endpage_spr_2_png",
+			"type": "image",
+			"url": "assets/endpage_spr_2.png"
+		},
+		{
+			"name": "endpage_spr_3_png",
+			"type": "image",
+			"url": "assets/endpage_spr_3.png"
+		},
+		{
+			"name": "endpage_title_png",
+			"type": "image",
+			"url": "assets/endpage_title.png"
+		},
+		{
+			"name": "interview_stop_png",
+			"type": "image",
+			"url": "assets/interview_stop.png"
+		},
+		{
+			"name": "lighting_png",
+			"type": "image",
+			"url": "assets/lighting.png"
+		},
+		{
+			"name": "person_png",
+			"type": "image",
+			"url": "assets/person.png"
+		},
+		{
+			"name": "recruit_stop_png",
+			"type": "image",
+			"url": "assets/recruit_stop.png"
+		},
+		{
+			"name": "stage_png",
+			"type": "image",
+			"url": "assets/stage.png"
+		},
+		{
+			"name": "stage_button_png",
+			"type": "image",
+			"url": "assets/stage_button.png"
+		},
+		{
+			"name": "stage_left_png",
+			"type": "image",
+			"url": "assets/stage_left.png"
+		},
+		{
+			"name": "stage_right_png",
+			"type": "image",
+			"url": "assets/stage_right.png"
+		},
+		{
+			"name": "stop_button_png",
+			"type": "image",
+			"url": "assets/stop_button.png"
+		},
+		{
+			"name": "swim_stop_png",
+			"type": "image",
+			"url": "assets/swim_stop.png"
+		},
+		{
+			"name": "back_1_png",
+			"type": "image",
+			"url": "assets/back_1.png"
+		},
+		{
+			"name": "back_2_png",
+			"type": "image",
+			"url": "assets/back_2.png"
+		},
+		{
+			"name": "curtain_left_png",
+			"type": "image",
+			"url": "assets/curtain_left.png"
+		},
+		{
+			"name": "curtain_right_png",
+			"type": "image",
+			"url": "assets/curtain_right.png"
+		},
+		{
+			"name": "curtain_top_png",
+			"type": "image",
+			"url": "assets/curtain_top.png"
+		},
+		{
+			"name": "loading_bg_png",
+			"type": "image",
+			"url": "assets/loading_bg.png"
+		},
+		{
+			"name": "loading_tip_png",
+			"type": "image",
+			"url": "assets/loading_tip.png"
+		},
+		{
+			"name": "loading_title_png",
+			"type": "image",
+			"url": "assets/loading_title.png"
+		}
+	]
+}
